@@ -18,6 +18,7 @@ class PortfolioSystem {
         this.setupSkillsCanvas();
         this.setupCopyEmail();
         this.setupBackToTop();
+        this.setupCertificationsCarousel();
     }
 
     // 1. Navigation & Mobile Menu
@@ -289,7 +290,7 @@ class PortfolioSystem {
 
         const technologies = [
             "Python", "PyTorch", "TensorFlow", "FastAPI", "Docker",
-            "PostgreSQL", "LangChain", "CUDA", "AWS", "K8s", "Git", "MLflow"
+            "PostgreSQL", "LangChain", "C++", "GCP", "ONNX", "Git", "TensorBoard"
         ];
 
         let mouse = { x: null, y: null, radius: 100 };
@@ -426,6 +427,79 @@ class PortfolioSystem {
                 top: 0,
                 behavior: 'smooth'
             });
+        });
+    }
+
+    // 10. Certifications Carousel
+    setupCertificationsCarousel() {
+        const track = document.getElementById('cert-track');
+        const prevBtn = document.getElementById('cert-prev');
+        const nextBtn = document.getElementById('cert-next');
+        
+        if (!track || !prevBtn || !nextBtn) return;
+
+        const cards = Array.from(track.querySelectorAll('.cert-card'));
+        let currentIndex = 0;
+        let cardsToShow = 3;
+
+        const updateCarousel = () => {
+            // Determine how many cards are "clear" based on screen width
+            if (window.innerWidth <= 768) {
+                cardsToShow = 1;
+            } else if (window.innerWidth <= 1024) {
+                cardsToShow = 2;
+            } else {
+                cardsToShow = 3;
+            }
+
+            const maxIndex = Math.max(0, cards.length - cardsToShow);
+            
+            // Boundary enforcement
+            if (currentIndex > maxIndex) currentIndex = maxIndex;
+            if (currentIndex < 0) currentIndex = 0;
+
+            // Calculate exact width of one card + its gap
+            const cardWidth = cards[0].offsetWidth;
+            const gap = parseFloat(window.getComputedStyle(track).gap) || 24;
+            const step = cardWidth + gap;
+
+            // Slide track
+            track.style.transform = `translateX(-${currentIndex * step}px)`;
+
+            // Toggle 'clear' vs 'faded' classes
+            cards.forEach((card, index) => {
+                if (index >= currentIndex && index < currentIndex + cardsToShow) {
+                    card.classList.add('clear');
+                } else {
+                    card.classList.remove('clear');
+                }
+            });
+
+            // Update button states
+            prevBtn.disabled = currentIndex === 0;
+            nextBtn.disabled = currentIndex === maxIndex;
+        };
+
+        // Event Listeners
+        prevBtn.addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateCarousel();
+            }
+        });
+
+        nextBtn.addEventListener('click', () => {
+            const maxIndex = cards.length - cardsToShow;
+            if (currentIndex < maxIndex) {
+                currentIndex++;
+                updateCarousel();
+            }
+        });
+
+        // Initialize and recalculate on resize
+        updateCarousel();
+        window.addEventListener('resize', () => {
+            setTimeout(updateCarousel, 100); // Slight delay for CSS reflow
         });
     }
 }

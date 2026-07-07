@@ -829,24 +829,57 @@ ul {
    Certifications
    ========================================================================== */
 .certs-section {
-    padding: 8rem 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
+    padding: 8rem 0; /* Changed horizontal padding to allow full bleed */
+    overflow: hidden; /* Prevents horizontal scroll from faded tiles */
 }
-.certs-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+.certs-section .section-header {
+    padding: 0 2rem;
+}
+.carousel-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+.carousel-viewport {
+    width: 100%;
+    max-width: 1000px; /* Constrains the clear area so faded tiles sit outside */
+    overflow: visible; /* Allows the faded tiles to bleed out */
+}
+.carousel-track {
+    display: flex;
+    gap: 1.5rem;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .cert-card {
+    flex: 0 0 calc(33.333% - 1rem); /* Fits exactly 3 visible cards */
     display: flex;
     align-items: center;
     gap: 1.5rem;
     padding: 1.5rem;
+    text-decoration: none;
+    
+    /* Faded State by default */
+    opacity: 0.25;
+    transform: scale(0.85);
+    transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    pointer-events: none; /* Prevents clicking on faded tiles */
+    z-index: 0;
+}
+.cert-card.clear {
+    /* Clear State */
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: auto; /* Re-enables clicking */
+    z-index: 1;
 }
 .cert-icon {
     font-size: 2.5rem;
     color: var(--accent-primary);
+    flex-shrink: 0;
 }
 .cert-info h3 {
     font-size: 1rem;
@@ -862,6 +895,37 @@ ul {
     font-family: var(--font-mono);
     font-size: 0.75rem;
     color: var(--highlight);
+}
+
+/* Carousel Buttons */
+.carousel-btn {
+    background: var(--bg-surface);
+    border: 1px solid var(--accent-primary);
+    color: var(--text-primary);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    z-index: 10;
+    transition: var(--transition-smooth);
+    box-shadow: var(--shadow-card);
+    margin: 0 1rem;
+    flex-shrink: 0;
+}
+.carousel-btn:hover:not(:disabled) {
+    background: var(--accent-primary);
+    color: white;
+    transform: scale(1.1);
+    box-shadow: var(--glow-primary);
+}
+.carousel-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    border-color: var(--border-color);
 }
 
 /* ==========================================================================
@@ -1097,6 +1161,9 @@ ul {
     .metrics-container {
         grid-template-columns: repeat(2, 1fr);
     }
+    .cert-card {
+        flex: 0 0 calc(50% - 0.75rem); /* Show 2 clear cards on tablet */
+    }
 }
 
 @media (max-width: 768px) {
@@ -1151,6 +1218,17 @@ ul {
     }
     #back-to-top:hover {
         transform: translate(50%, -5px);
+    }
+    .cert-card {
+        flex: 0 0 100%; /* Show 1 clear card on mobile */
+    }
+    .carousel-viewport {
+        max-width: 320px;
+    }
+    .carousel-btn {
+        margin: 0 0.5rem;
+        width: 40px;
+        height: 40px;
     }
 }
 
