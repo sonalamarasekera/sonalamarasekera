@@ -2,7 +2,7 @@
 
 Welcome to my personal portfolio repository! This project serves as a centralized hub to showcase my background, technical skill sets, academic research, and engineering projects. 
 
-🔗 **Live Portfolio:** [Sonal Amarasekera | Portfolio](sonalamarasekera.github.io/sonalamarasekera)
+🔗 **Live Portfolio:** [Sonal Amarasekera | Portfolio](https://sonalamarasekera.github.io/sonalamarasekera)
 
 ---
 
@@ -33,7 +33,7 @@ I am a motivated **Algorithm R&D professional** with a composite background in *
 
 I am always open to exploring research collaborations, engineering challenges, or technical discussions. Let's connect!
 
-* **LinkedIn:** [Sonal Amarasekera on LinkedIn](www.linkedin.com/in/sonalamarasekera)
+* **LinkedIn:** [Sonal Amarasekera on LinkedIn](https://linkedin.com/in/sonalamarasekera)
 * **GitHub Profile:** [@sonalamarasekera](https://github.com/sonalamarasekera)
 
 ---
