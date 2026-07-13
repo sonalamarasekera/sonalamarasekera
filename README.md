@@ -2,7 +2,7 @@
 
 Welcome to my personal portfolio repository! This project serves as a centralized hub to showcase my background, technical skill sets, academic research, and engineering projects. 
 
-🔗 **Live Portfolio:** [sonalamarasekera.github.io/sonalamarasekera]
+🔗 **Live Portfolio:** [Sonal Amarasekera | Portfolio](sonalamarasekera.github.io/sonalamarasekera)
 
 ---
 
@@ -12,7 +12,7 @@ I am a motivated **Algorithm R&D professional** with a composite background in *
 
 * 🎓 **M.Sc. in Information and Communication Engineering** – Beihang University
 * 🎓 **B.Sc. in Communication Engineering** – Beijing Jiaotong University
-* 🔬 **Core Expertise:** Audio & Speech Processing, End-to-End Deep Learning, Model Compression
+* 🔬 **Core Expertise:** Audio & Speech Processing, End-to-End Deep Learning, Model Architecture
 
 ---
 
