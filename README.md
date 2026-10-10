@@ -8,7 +8,7 @@ Welcome to my personal portfolio repository! This project serves as a centralize
 
 ## 🧑‍💻 About Me
 
-I am a motivated **Algorithm R&D professional** with a composite background in **Communication Engineering & Artificial Intelligence**. I specialize in end-to-end Machine Learning workflows, including custom dataset building, neural network architecture design, model training, tuning, and efficient deployment. 
+I am a research enthusiast with a composite background in **Communication Engineering & Artificial Intelligence**. I specialize in end-to-end Machine Learning workflows, including neural network architecture design, model training, tuning, and efficient deployment. 
 
 * 🎓 **M.Sc. in Information and Communication Engineering** – Beihang University
 * 🎓 **B.Sc. in Communication Engineering** – Beijing Jiaotong University
